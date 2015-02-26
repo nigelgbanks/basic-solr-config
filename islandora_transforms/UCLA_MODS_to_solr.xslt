@@ -85,21 +85,9 @@
       <xsl:value-of select="mods:topic"/>
     </field>
   </xsl:template>
-
-  <!--
-    SECTION 3:
-    
-    Below this are collection level mode switches (needed b/c we use xslt 1.0).
-    These basically handle the non-special fields in a collection that is being
-    given special treatment...  It switches them to use the generic templates.
-  -->
-
-  <xsl:template match="mods:*" mode="CollectingLA">
-    <xsl:apply-templates select="self::mods:*"/>
-  </xsl:template>
-  
-  <xsl:template match="mods:*" mode="Tahrir">
-    <xsl:apply-templates select="self::mods:*"/>
-  </xsl:template>
+	
+  <!-- This prevents text from just being printed to the doc without field elements JUST TRY COMMENTING IT OUT -->
+  <xsl:template match="text()" mode="CollectingLA"/>
+  <xsl:template match="text()" mode="Tahrir"/>
 </xsl:stylesheet>
 
