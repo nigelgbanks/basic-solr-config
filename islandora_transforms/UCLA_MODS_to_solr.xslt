@@ -41,6 +41,7 @@
       </xsl:choose>
       <!-- We always get the generic treatment -->
       <xsl:apply-templates mode="slurping_MODS" select="current()">
+	 <xsl:with-param name="prefix" select="$modsPrefix"/>
 	 <xsl:with-param name="suffix" select="'ms'"/>
       	 <xsl:with-param name="pid" select="$PID"/>
       </xsl:apply-templates>
